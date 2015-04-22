@@ -94,3 +94,49 @@ void sense_object (int line_count, int sense)
 	
 			
 }//End Function sense_object()
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------------
+Function for returning to start block
+---------------------------------------------------------
+/* Returning to starting cell
+*/
+
+void return_to_start(float angle_of_start, float hypotenuse)
+{
+	//test, valid if travelled 50 cm across, and 20 cm up
+	//robot must be facing towards the direction of the starting
+	//block, but not directly at the block itself.
+	
+	nMotorEncoder[motorB] = 0;
+	nMotorEncoder[motorC] = 0;
+	while(nMotorEncoder[motorB] < angle_of_start)
+	{
+		motor[motorB] = 40;
+		motor[motorC] = 0;
+	}//End while
+	
+	
+	//Robot now faces the block. Must now travel in a 
+	//straight line to get to starting cell.
+	nMotorEncoder[motorB] = 0;
+	nMotorEncoder[motorC] = 0;
+	while(nMotorEncoder[motorB] < hypotenuse)
+	{
+		motor[motorB] = 40;
+		motor[motorC] = 40;
+	}//End while
+
+}//End return_to_start	
+
+*/
